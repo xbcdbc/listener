@@ -1,12 +1,12 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
-
+#include "iostream"
 /**
  * This tutorial demonstrates simple receipt of messages over the ROS system.
  */
 void chatterCallback(const std_msgs::String::ConstPtr& msg)
 {
-  ROS_INFO("I heard: [%s]", msg->data.c_str());
+  std::cout<<"I heard: [%s]"<< msg->data.c_str()<<std::endl;
 }
 
 int main(int argc, char **argv)
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
    * away the oldest ones.
    */
   ros::Subscriber sub = n.subscribe("chatter", 1000, chatterCallback);
-
+  std::cout<<"runing"<<std::endl;
   /**
    * ros::spin() will enter a loop, pumping callbacks.  With this version, all
    * callbacks will be called from within this thread (the main one).  ros::spin()
@@ -58,6 +58,7 @@ int main(int argc, char **argv)
    * A count of how many messages we have sent. This is used to create
    * a unique string for each message.
    */
+
   while (ros::ok())
   {
   

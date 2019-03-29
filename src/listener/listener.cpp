@@ -52,7 +52,7 @@ int main(int argc, char **argv)
    * callbacks will be called from within this thread (the main one).  ros::spin()
    * will exit when Ctrl-C is pressed, or the node is shutdown by the master.
    */
-  ros::Rate loop_rate(10);
+  ros::Rate loop_rate(5);
 
   /**
    * A count of how many messages we have sent. This is used to create
